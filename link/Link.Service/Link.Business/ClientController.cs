@@ -106,10 +106,7 @@ namespace Link.Business
                 return "ok";
             }
         }
-        public string IntegrateEcommerce(string username, string token, string ecommerce)
-        {
-            return "";
-        }
+
         public JObject GetArticles(string username, string token)
         {
             Integration integration;
