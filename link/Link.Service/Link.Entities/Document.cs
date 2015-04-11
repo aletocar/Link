@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Link.Entities
 {
-    public abstract class Document
+    public class Document
     {
         public int DocumentId { get; set; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Link.IntegrationInterface
 {
-    public interface IIntegration
+    public interface IEcommerceIntegration
     {
         string Connect();
         string Authorize(string code);

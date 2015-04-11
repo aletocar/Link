@@ -11,7 +11,7 @@ namespace Link.Business
 
         string Login(string userName, string password);
         string Signup(string userName, string password, string businessName);
-        string Integrate(string userName, string token, string erpName, string integrationIp);
+        string Integrate(string userName, string token, string erpName, string ecommerceName, string integrationIp);
         string Publish(string username, string token);
 
     }

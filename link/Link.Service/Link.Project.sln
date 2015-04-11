@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.Business", "Link.Busin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.IntegrationFactory", "Link.IntegrationFactory\Link.IntegrationFactory.csproj", "{98CF5D24-E6D0-414E-BE4C-08CC59386D95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.IntegrationInterface", "Link.IntegrationInterface\Link.IntegrationInterface.csproj", "{1B637C2C-B008-48AB-B53E-3490D75AF6FD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EcommerceIntegrationInterface", "Link.IntegrationInterface\Link.EcommerceIntegrationInterface.csproj", "{1B637C2C-B008-48AB-B53E-3490D75AF6FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
