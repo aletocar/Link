@@ -1,5 +1,5 @@
 ﻿using ERPIntegrationInterface;
-using Link.IntegrationInterface;
+using Link.EcommerceIntegrationInterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;

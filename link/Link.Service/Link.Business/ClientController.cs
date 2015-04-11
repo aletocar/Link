@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Link.Entities;
 using Newtonsoft.Json.Linq;
-using ERPIntegrationInterface;
+using Link.ERPIntegrationInterface;
+using Link.IntegrationFactory;
+using Link.EcommerceIntegrationInterface;
 
 namespace Link.Business
 {
@@ -65,7 +67,26 @@ namespace Link.Business
 
         public string Publish(string username, string token)
         {
-            return "";
+            JObject objetoAPublicar = GetArticles(username, token);
+            foreach (var objects in objetoAPublicar)
+            {
+                if (objects.Key == "error" && objects.Value.ToString() == "true")
+                {
+                    return "error";
+                }
+                else
+                {
+                    Ecommerce ecommerce;
+                    using(LinkContext ctx = new LinkContext())
+                    {
+                        Client client = ctx.ClientUsers.Where(usr => usr.UserName == username).FirstOrDefault().IsUserOf;
+                        ecommerce = ctx.Integrations.Where(integ => integ.ClientIntegrated == client).FirstOrDefault().EcommerceIntegrated;
+                    }
+                    IEcommerceIntegration ecommerceIntegration = IntegrationFactory.IntegrationFactory.GetEcommerceIntegration(ecommerce.EcommerceName);
+                    return ecommerceIntegration.Publish();
+                }
+            }
+            return "error";
         }
 
         public string Integrate(string userName, string token, string erpName, string ecommerceName, string integrationIp)

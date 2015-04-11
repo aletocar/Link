@@ -57,9 +57,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ERPIntegrationInterface\ERPIntegrationInterface.csproj">
+    <ProjectReference Include="..\ERPIntegrationInterface\Link.ERPIntegrationInterface.csproj">
       <Project>{1b339d6d-a3a3-4f89-b16a-156c20f0b569}</Project>
-      <Name>ERPIntegrationInterface</Name>
+      <Name>Link.ERPIntegrationInterface</Name>
     </ProjectReference>
     <ProjectReference Include="..\Link.Entities\Link.Entities.csproj">
       <Project>{7079bad9-2a3f-4aa1-8676-3f587fac7091}</Project>

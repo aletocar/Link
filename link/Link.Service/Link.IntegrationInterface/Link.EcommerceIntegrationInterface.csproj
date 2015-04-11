@@ -7,7 +7,7 @@
     <ProjectGuid>{1B637C2C-B008-48AB-B53E-3490D75AF6FD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Link.IntegrationInterface</RootNamespace>
+    <RootNamespace>Link.EcommerceIntegrationInterface</RootNamespace>
     <AssemblyName>Link.IntegrationInterface</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
