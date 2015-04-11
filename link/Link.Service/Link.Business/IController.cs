@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Link.Business
 {
-    interface IClientController
+    public interface IClientController
     {
 
         string Login(string userName, string password);
-        string Integrate(string userName, string token, string erpName);
+        string Signup(string userName, string password, string businessName);
+        string Integrate(string userName, string token, string erpName, string integrationIp);
         string Publish(string username, string token);
+
     }
 }

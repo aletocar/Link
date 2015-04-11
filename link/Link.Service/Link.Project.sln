@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.WebUI", "Link.WebUI\Li
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.Business", "Link.Business\Link.Business.csproj", "{D6A39991-12B2-4C7B-821C-8637E58966DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.IntegrationFactory", "Link.IntegrationFactory\Link.IntegrationFactory.csproj", "{98CF5D24-E6D0-414E-BE4C-08CC59386D95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.IntegrationInterface", "Link.IntegrationInterface\Link.IntegrationInterface.csproj", "{1B637C2C-B008-48AB-B53E-3490D75AF6FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{D6A39991-12B2-4C7B-821C-8637E58966DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6A39991-12B2-4C7B-821C-8637E58966DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6A39991-12B2-4C7B-821C-8637E58966DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98CF5D24-E6D0-414E-BE4C-08CC59386D95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98CF5D24-E6D0-414E-BE4C-08CC59386D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98CF5D24-E6D0-414E-BE4C-08CC59386D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98CF5D24-E6D0-414E-BE4C-08CC59386D95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B637C2C-B008-48AB-B53E-3490D75AF6FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B637C2C-B008-48AB-B53E-3490D75AF6FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B637C2C-B008-48AB-B53E-3490D75AF6FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B637C2C-B008-48AB-B53E-3490D75AF6FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

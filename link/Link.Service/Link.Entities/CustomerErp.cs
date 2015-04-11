@@ -12,5 +12,6 @@ namespace Link.Entities
         public string Name { get; set; }
         public bool IsSaas { get; set; }
 
+        public CustomerErp() { }
     }
 }

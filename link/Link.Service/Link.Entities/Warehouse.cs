@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Link.Entities
 {
-    class Warehouse
+    public class Warehouse
     {
+        public int WarehouseId { get; set; }
+        public Warehouse()
+        {
+
+        }
     }
 }

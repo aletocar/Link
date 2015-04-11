@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Link.Entities
 {
-    class Item
+    public class Item
     {
+        public int ItemId { get; set; }
+        public string ItemName { get; set; }
+        public string Description { get; set; }
+
+        public Item() { }
     }
 }

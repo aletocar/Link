@@ -9,5 +9,10 @@ namespace Link.Entities
     public abstract class Document
     {
         public int DocumentId { get; set; }
+
+        public Document()
+        {
+
+        }
     }
 }
