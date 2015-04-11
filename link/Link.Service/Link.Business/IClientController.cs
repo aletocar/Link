@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ namespace Link.Business
         string Signup(string userName, string password, string businessName);
         string Integrate(string userName, string token, string erpName, string ecommerceName, string integrationIp);
         string Publish(string username, string token);
+        JObject GetArticles(string username, string token);
 
     }
 }

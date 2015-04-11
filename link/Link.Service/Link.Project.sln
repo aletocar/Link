@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.IntegrationFactory", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.EcommerceIntegrationInterface", "Link.IntegrationInterface\Link.EcommerceIntegrationInterface.csproj", "{1B637C2C-B008-48AB-B53E-3490D75AF6FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPIntegrationInterface", "ERPIntegrationInterface\ERPIntegrationInterface.csproj", "{1B339D6D-A3A3-4F89-B16A-156C20F0B569}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{1B637C2C-B008-48AB-B53E-3490D75AF6FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B637C2C-B008-48AB-B53E-3490D75AF6FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B637C2C-B008-48AB-B53E-3490D75AF6FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B339D6D-A3A3-4F89-B16A-156C20F0B569}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B339D6D-A3A3-4F89-B16A-156C20F0B569}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B339D6D-A3A3-4F89-B16A-156C20F0B569}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B339D6D-A3A3-4F89-B16A-156C20F0B569}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

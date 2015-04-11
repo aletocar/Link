@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Link.Entities;
+using Newtonsoft.Json.Linq;
+using ERPIntegrationInterface;
 
 namespace Link.Business
 {
@@ -44,7 +46,9 @@ namespace Link.Business
                     ClientUser existing_user = ctx.ClientUsers.Where(usr => usr.UserName == userName).FirstOrDefault();
                     if (existing_user == null)
                     {
+                        ctx.ClientUsers.Add(new_user);
                         ctx.Clients.Add(new_client);
+                        ctx.SaveChanges();
                         return "ok";
                     }
                     else
@@ -76,6 +80,8 @@ namespace Link.Business
                 Integration integration = new Integration() { ClientIntegrated = client, ErpIntegrated = erp, IntegrationIp = integrationIp };
 
                 ctx.Integrations.Add(integration);
+                ctx.SaveChanges();
+
                 return "ok";
             }
         }
@@ -83,6 +89,17 @@ namespace Link.Business
         {
             return "";
         }
-
+        public JObject GetArticles(string username, string token)
+        {
+            Integration integration;
+            using (LinkContext ctx = new LinkContext())
+            {
+                Client client = ctx.ClientUsers.Where(cli => cli.UserName == username).FirstOrDefault().IsUserOf;
+                integration = ctx.Integrations.Where(igr => igr.ClientIntegrated == client).FirstOrDefault();
+                
+            }
+            IERPIntegration erp_integration = IntegrationFactory.IntegrationFactory.GetERPIntegration(integration.ErpIntegrated.Name);
+            return erp_integration.GetArticles(integration.IntegrationIp, integration.ERPUserName, integration.ERPPassword);
+        }
     }
 }

@@ -16,6 +16,8 @@ namespace Link.Entities
         public string EcommerceUserName { get; set; }
         public string EcommerceAccessToken { get; set; }
         public string EcommerceCode { get; set; }
+        public string ERPUserName { get; set; }
+        public string ERPPassword { get; set; }
 
         public Integration()
         {
