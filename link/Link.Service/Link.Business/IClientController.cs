@@ -12,7 +12,10 @@ namespace Link.Business
 
         string Login(string userName, string password);
         string Signup(string userName, string password, string businessName);
-        string Integrate(string userName, string token, string erpName, string ecommerceName, string integrationIp);
+        //string Integrate(string userName, string token, string erpName, string ecommerceName, string integrationIp);
+        string IntegrateERP(string userName, string token, string erpName, string integrationIp);
+        string IntegrateEcommerce(string userName, string token, string ecommerceName);
+        string AuthorizeEcommerce(string userName, string token, string ecommerceName, string code);
         string Publish(string username, string token);
         JObject GetArticles(string username, string token);
 

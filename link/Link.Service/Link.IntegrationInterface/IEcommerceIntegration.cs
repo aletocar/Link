@@ -10,6 +10,8 @@ namespace Link.EcommerceIntegrationInterface
     {
         string Connect();
         string Authorize(string code);
-        string Publish();
+        string Publish(string json);
+        void SetCredentials(long id, string secret, string token);
+        
     }
 }

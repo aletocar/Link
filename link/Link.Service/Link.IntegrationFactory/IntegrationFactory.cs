@@ -5,8 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ZetaIntegration;
-using IntegrationZetaPrueba2;
+using MercadoLibreController.LINK.Controllers;
+using System.Reflection;
+using System.Configuration;
 
 namespace Link.IntegrationFactory
 {
@@ -15,13 +16,21 @@ namespace Link.IntegrationFactory
         public static IEcommerceIntegration GetEcommerceIntegration(string ecommerce)
         {
             //Reflection
-            return null;
+            //Assembly integrationAssembly = Assembly.LoadFile(ConfigurationManager.AppSettings[ecommerce.ToUpper() + "Integration".ToUpper()]);
+            //Type integrationAssemblyType = integrationAssembly.GetType(ConfigurationManager.AppSettings[ecommerce.ToUpper() + "IntegrationType".ToUpper()]);
+            ////MethodInfo getController = integrationAssemblyType.GetMethod("GetController");
+            //return Activator.CreateInstance(integrationAssemblyType) as IEcommerceIntegration;
+            return new MercadoLibreController.LINK.Controllers.MercadoLibreController();
         }
 
         public static IERPIntegration GetERPIntegration(string erp)
         {
-            //Reflection
-            return new ZetaIntegrationImp();
+            string fileDir = ConfigurationManager.AppSettings[erp.ToUpper() + "Integration".ToUpper()];
+            string assemblyType = ConfigurationManager.AppSettings[erp.ToUpper() + "IntegrationType".ToUpper()];
+            Assembly integrationAssembly = Assembly.LoadFile(fileDir);
+            Type integrationAssemblyType = integrationAssembly.GetType(assemblyType);
+            return Activator.CreateInstance(integrationAssemblyType) as IERPIntegration;
+            //return new ZetaIntegrationImp();
         }
     }
 }

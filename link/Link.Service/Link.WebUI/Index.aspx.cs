@@ -15,7 +15,10 @@ namespace Link.WebUI
         {
             IClientController controller = new ClientController();
 
-            label.Text = controller.GetArticles("NOVA", "").ToString();
+            //label.Text = controller.GetArticles("NOVA", "").ToString();
+
+            string url = controller.IntegrateEcommerce("NOVA", "", "mercadolibre");
+            Response.Redirect(url);
         }
     }
 }

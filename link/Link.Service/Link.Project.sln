@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.ERPIntegrationInterfac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Link.Zeta", "Link.Zeta\Link.Zeta.csproj", "{1C1B383C-DAA5-4410-9FB1-DE86748A8BBF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercadoLibreController.LINK", "MercadoLibreController.LINK\MercadoLibreController.LINK.csproj", "{35F66423-9E08-40F2-8A7E-D17268D97402}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{1C1B383C-DAA5-4410-9FB1-DE86748A8BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C1B383C-DAA5-4410-9FB1-DE86748A8BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C1B383C-DAA5-4410-9FB1-DE86748A8BBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35F66423-9E08-40F2-8A7E-D17268D97402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35F66423-9E08-40F2-8A7E-D17268D97402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35F66423-9E08-40F2-8A7E-D17268D97402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35F66423-9E08-40F2-8A7E-D17268D97402}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

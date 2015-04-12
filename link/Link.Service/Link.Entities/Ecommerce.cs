@@ -11,5 +11,7 @@ namespace Link.Entities
         public int EcommerceId { get; set; }
         public string EcommerceName { get; set; }
         public string ECommerceUrl { get; set; }
+        public long EcommerceAppId { get; set; }
+        public string EcommerceSecret { get; set; }
     }
 }

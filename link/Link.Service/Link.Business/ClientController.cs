@@ -76,33 +76,76 @@ namespace Link.Business
                 }
                 else
                 {
-                    Ecommerce ecommerce;
-                    using(LinkContext ctx = new LinkContext())
+                    Integration ecommerce_int;
+                    using (LinkContext ctx = new LinkContext())
                     {
                         Client client = ctx.ClientUsers.Where(usr => usr.UserName == username).FirstOrDefault().IsUserOf;
-                        ecommerce = ctx.Integrations.Where(integ => integ.ClientIntegrated == client).FirstOrDefault().EcommerceIntegrated;
+                        ecommerce_int = ctx.Integrations.Where(integ => integ.ClientIntegrated == client).FirstOrDefault();
                     }
-                    IEcommerceIntegration ecommerceIntegration = IntegrationFactory.IntegrationFactory.GetEcommerceIntegration(ecommerce.EcommerceName);
-                    return ecommerceIntegration.Publish();
+                    IEcommerceIntegration ecommerceIntegration = IntegrationFactory.IntegrationFactory.GetEcommerceIntegration(ecommerce_int.EcommerceIntegrated.EcommerceName);
+                    ecommerceIntegration.SetCredentials(ecommerce_int.EcommerceIntegrated.EcommerceAppId, ecommerce_int.EcommerceIntegrated.EcommerceSecret, ecommerce_int.EcommerceAccessToken);
+                    string json = "";
+                    //Build Json
+                    return ecommerceIntegration.Publish(json);
                 }
             }
             return "error";
         }
 
-        public string Integrate(string userName, string token, string erpName, string ecommerceName, string integrationIp)
+        public string IntegrateERP(string userName, string token, string erpName, string integrationIp)
         {
+            Client client;
+            CustomerErp erp;
+            ClientUser user;
             using (LinkContext ctx = new LinkContext())
             {
-                CustomerErp erp = ctx.CustomerErps.Where(er => er.Name == erpName).FirstOrDefault();
-                Ecommerce ecommerce = ctx.Ecommerces.Where(eco => eco.EcommerceName == ecommerceName).FirstOrDefault();
-                ClientUser user = ctx.ClientUsers.Where(usr => usr.UserName == userName).FirstOrDefault();
-                Client client = user.IsUserOf;
-
+                erp = ctx.CustomerErps.Where(er => er.Name == erpName).FirstOrDefault();
+                user = ctx.ClientUsers.Include("IsUserOf").Where(usr => usr.UserName == userName).FirstOrDefault();
+                client = user.IsUserOf;
                 Integration integration = new Integration() { ClientIntegrated = client, ErpIntegrated = erp, IntegrationIp = integrationIp };
-
                 ctx.Integrations.Add(integration);
                 ctx.SaveChanges();
+                return "ok";
+            }
+        }
 
+        public string IntegrateEcommerce(string userName, string token, string ecommerceName)
+        {
+            Client client;
+            Ecommerce ecommerce;
+            ClientUser user;
+            using (LinkContext ctx = new LinkContext())
+            {
+                ecommerce = ctx.Ecommerces.Where(eco => eco.EcommerceName == ecommerceName).FirstOrDefault();
+                user = ctx.ClientUsers.Include("IsUserOf").Where(usr => usr.UserName == userName).FirstOrDefault();
+                client = user.IsUserOf;
+            }
+
+            IEcommerceIntegration ecommerce_integration = IntegrationFactory.IntegrationFactory.GetEcommerceIntegration(ecommerce.EcommerceName);
+            return ecommerce_integration.Connect();
+        }
+
+        public string AuthorizeEcommerce(string userName, string token, string ecommerceName, string code)
+        {
+            Client client;
+            Ecommerce ecommerce;
+            ClientUser user;
+            using (LinkContext ctx = new LinkContext())
+            {
+                ecommerce = ctx.Ecommerces.Where(eco => eco.EcommerceName == ecommerceName).FirstOrDefault();
+                user = ctx.ClientUsers.Include("IsUserOf").Where(usr => usr.UserName == userName).FirstOrDefault();
+                client = user.IsUserOf;
+            }
+            IEcommerceIntegration ecommerce_integration = IntegrationFactory.IntegrationFactory.GetEcommerceIntegration(ecommerce.EcommerceName);
+            string token_ecommerce = ecommerce_integration.Authorize(code);
+            using (LinkContext ctx = new LinkContext())
+            {
+                Integration integration = ctx.Integrations.Include("ClientIntegrated").Include("EcommerceIntegrated").Where(inte => inte.ClientIntegrated.ClientId == client.ClientId && inte.EcommerceIntegrated == null).FirstOrDefault();
+                ctx.Integrations.Attach(integration);
+                integration.EcommerceIntegrated = ecommerce;
+                integration.EcommerceCode = code;
+                integration.EcommerceAccessToken = token_ecommerce;
+                ctx.SaveChanges();
                 return "ok";
             }
         }
@@ -115,7 +158,7 @@ namespace Link.Business
                 ClientUser user = ctx.ClientUsers.Include("IsUserOf").Where(cli => cli.UserName == username).FirstOrDefault();
                 Client client = user.IsUserOf;
                 integration = ctx.Integrations.Include("ErpIntegrated").Where(igr => igr.ClientIntegrated.ClientId == client.ClientId).FirstOrDefault();
-                
+
             }
             IERPIntegration erp_integration = IntegrationFactory.IntegrationFactory.GetERPIntegration(integration.ErpIntegrated.Name);
             return erp_integration.GetArticles(integration.IntegrationIp, integration.ERPUserName, integration.ERPPassword);

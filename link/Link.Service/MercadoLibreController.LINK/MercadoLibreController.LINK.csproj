@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{98CF5D24-E6D0-414E-BE4C-08CC59386D95}</ProjectGuid>
+    <ProjectGuid>{35F66423-9E08-40F2-8A7E-D17268D97402}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Link.IntegrationFactory</RootNamespace>
-    <AssemblyName>Link.IntegrationFactory</AssemblyName>
+    <RootNamespace>MercadoLibreController.LINK</RootNamespace>
+    <AssemblyName>MercadoLibreController.LINK</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,8 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="net-sdk, Version=1.0.5580.5806, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Link.Libraries\net-sdk-master\SDK\bin\Release\net-sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Link.Libraries\net-sdk-master\SDK\bin\Release\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\net-sdk-master\SDK\bin\Debug\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,25 +50,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IntegrationFactory.cs" />
+    <Compile Include="Entidades\ArticleERP.cs" />
+    <Compile Include="Entidades\ArticleMeli.cs" />
+    <Compile Include="Controllers\MercadoLibreController.cs" />
+    <Compile Include="Entidades\Picture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ERPIntegrationInterface\Link.ERPIntegrationInterface.csproj">
-      <Project>{1b339d6d-a3a3-4f89-b16a-156c20f0b569}</Project>
-      <Name>Link.ERPIntegrationInterface</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Link.IntegrationInterface\Link.EcommerceIntegrationInterface.csproj">
       <Project>{1b637c2c-b008-48ab-b53e-3490d75af6fd}</Project>
       <Name>Link.EcommerceIntegrationInterface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MercadoLibreController.LINK\MercadoLibreController.LINK.csproj">
-      <Project>{35f66423-9e08-40f2-8a7e-d17268d97402}</Project>
-      <Name>MercadoLibreController.LINK</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
