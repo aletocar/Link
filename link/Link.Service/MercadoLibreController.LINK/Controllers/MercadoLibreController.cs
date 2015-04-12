@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Link.EcommerceIntegrationInterface;
+using Common;
 
 
 namespace MercadoLibreController.LINK.Controllers
@@ -85,6 +86,28 @@ namespace MercadoLibreController.LINK.Controllers
             
             //aca va un conversor del json a articulomeli
             return "ok";
+        }
+
+        //Realizar cada vez luego de una compra en mercado libre, simula lo que es una push notification
+        public DtoPurchase GetLastPurchase()
+        {
+            meli = new Meli(6811854697761224, "tjNL5zqG1GYbrSKYL5kOXbc6XOZXuSIE");
+
+            var p = new Parameter();
+            p.Name = "access_token";
+            p.Value = token;
+            var p2 = new Parameter();
+            p2.Name = "seller";
+            p2.Value = 83995566;
+            var ps = new List<Parameter>();
+            ps.Add(p);
+            ps.Add(p2);
+            //devuelve las ordenes mas recientes de compra, hechas al vendedor
+            IRestResponse r = meli.Get("/orders/search/recent", ps);
+            Answer answer = JsonConvert.DeserializeObject<Answer>(r.Content.ToString());
+            Result result = answer.results.Last();
+            return new DtoPurchase() { IdArticle = result.order_items[0].item.id, Quantity = Int32.Parse(result.order_items[0].quantity) };
+            //return "{ id : "+'"' +result.order_items[0].item.id+'"'+", idBuyer : "+'"'+ result.buyer.id+'"'+" , usernameBuyer : "+'"'+result.buyer.email+'"'+", first_name : "+'"'+result.buyer.first_name+'"'+", last_name : "+'"'+result.buyer.last_name+'"'+" ,quantity : "+'"'+ result.order_items[0].quantity+'"'+" }";
         }
     }
 }

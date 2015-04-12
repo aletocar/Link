@@ -8,9 +8,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    woooohoooooo
-    </div>
+        <div>
+            woooohoooooo
+
+        <asp:Button ID="btnGetLastPurchase" runat="server" OnClick="btnGetLastPurchase_Click" />
+        </div>
     </form>
 </body>
 </html>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common;
 
 namespace Link.EcommerceIntegrationInterface
 {
@@ -12,6 +13,7 @@ namespace Link.EcommerceIntegrationInterface
         string Authorize(string code);
         string Publish(List<IEcommerceItem> json);
         void SetCredentials(long id, string secret, string token);
+        DtoPurchase GetLastPurchase();
         
     }
 }

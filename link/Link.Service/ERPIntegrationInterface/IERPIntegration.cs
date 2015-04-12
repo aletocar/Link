@@ -12,5 +12,6 @@ namespace Link.ERPIntegrationInterface
     {
         List<EcommerceItem> GetArticles(string ip, string username, string password);
         double GetStock(string ip, string username, string password);
+        string PostPurchase(string ip_company, string user_company, string password_company, string product_id, double product_quantity);
     }
 }

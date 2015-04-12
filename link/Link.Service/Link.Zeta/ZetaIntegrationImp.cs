@@ -83,10 +83,10 @@ namespace IntegrationZetaPrueba2
         }
 
 
-        public JObject PostPurchase(string ip_company, string user_company, string password_company)
+        public string PostPurchase(string ip_company, string user_company, string password_company, string product_id, double product_quantity)
         {
 
-            IMPWSMovements.ImpMovimientosSDTMovimientoItem _Movement = CreateMovement();
+            IMPWSMovements.ImpMovimientosSDTMovimientoItem _Movement = CreateMovement(product_id, product_quantity);
 
 
             string _MensajeError = "";
@@ -118,11 +118,11 @@ namespace IntegrationZetaPrueba2
 
             _JsonArticles.Add(new JProperty("Message", _MensajeError));
 
-            return _JsonArticles;
+            return "ok";
 
         }
 
-        private IMPWSMovements.ImpMovimientosSDTMovimientoItem CreateMovement()
+        private IMPWSMovements.ImpMovimientosSDTMovimientoItem CreateMovement(string product_id, double product_quantity)
         {
             IMPWSMovements.ImpMovimientosSDTMovimientoItem _Movement = new IMPWSMovements.ImpMovimientosSDTMovimientoItem();
 
@@ -149,7 +149,7 @@ namespace IntegrationZetaPrueba2
 
             JObject _ArticleInfo = new JObject();
 
-            List<IMPWSMovements.ImpMovimientosSDTMovimientoItemLineaItem> _Lines = CreateLines(_ArticleInfo);
+            List<IMPWSMovements.ImpMovimientosSDTMovimientoItemLineaItem> _Lines = CreateLines(product_id, product_quantity);
 
             _Movement.Lineas = _Lines.ToArray();
             //_Movement.FormasPago = _MovimientoNuevoFormasPago.ToArray()
@@ -158,12 +158,12 @@ namespace IntegrationZetaPrueba2
 
         }
 
-        public List<IMPWSMovements.ImpMovimientosSDTMovimientoItemLineaItem> CreateLines(JObject _ArticleInfo)
+        public List<IMPWSMovements.ImpMovimientosSDTMovimientoItemLineaItem> CreateLines(string product_id, double product_quantity)
         {
             IMPWSMovements.ImpMovimientosSDTMovimientoItemLineaItem _Line = new IMPWSMovements.ImpMovimientosSDTMovimientoItemLineaItem();
             List<IMPWSMovements.ImpMovimientosSDTMovimientoItemLineaItem> _ListLines = new List<IMPWSMovements.ImpMovimientosSDTMovimientoItemLineaItem>();
-            _Line.Cantidad = 1.0;
-            _Line.CodigoArticulo = "30540013";
+            _Line.Cantidad = product_quantity;
+            _Line.CodigoArticulo = product_id;
             //no cambiar
             _Line.CodigoIVA = 1;
             _Line.CodigoLote = "";

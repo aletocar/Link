@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common;
 
 namespace Link.Business
 {
@@ -18,6 +19,7 @@ namespace Link.Business
         string AuthorizeEcommerce(string userName, string token, string ecommerceName, string code);
         string Publish(string username, string token);
         string GetArticles(string username, string token);
-
+        DtoPurchase GetLastPurchase();
+        void PostPurchase(string ip_company, string user_company, string password_company, string product_id, double product_quantity);
     }
 }

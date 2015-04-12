@@ -136,6 +136,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{0c449750-7478-4cf9-9a06-079733a47b6b}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Link.Business\Link.Business.csproj">
       <Project>{d6a39991-12b2-4c7b-821c-8637e58966dc}</Project>
       <Name>Link.Business</Name>

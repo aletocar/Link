@@ -39,8 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Answer.cs" />
+    <Compile Include="Buyer.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="DetailedItem.cs" />
+    <Compile Include="DtoPurchase.cs" />
+    <Compile Include="ItemResult.cs" />
+    <Compile Include="OrderItem.cs" />
+    <Compile Include="Order_item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
