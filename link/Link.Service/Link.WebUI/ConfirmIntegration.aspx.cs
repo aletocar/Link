@@ -13,12 +13,13 @@ namespace Link.WebUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //IClientController controller = new ClientController();
-            //string result = controller.GetArticles("NOVA", "").ToString();
-            //if (result == "ok")
-            //{
-            //    controller.Publish("NOVA", "");
-            //}
+            IClientController controller = new ClientController();
+            string result = controller.GetArticles("NOVA", "").ToString();
+            if (result == "ok")
+            {
+                controller.Publish("NOVA", "");
+            }
+            else { lblAnuncio.Text = "Ha ocurrido un error, intente nuevamente"; }
 
         }
 

@@ -13,10 +13,15 @@ namespace Link.WebUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        protected void btnSignup_Click(object sender, EventArgs e)
+        {
             IClientController controller = new ClientController();
-            controller.Signup("NOVA", "NOVA", "NOVA");
-            controller.IntegrateERP("NOVA", "NOVA", "ZETA", "201.221.29.3");
-            string url = controller.IntegrateEcommerce("NOVA", "", "Mercadolibre");
+            controller.Signup(txtUsername.Text, txtPassword.Text, txtEmpresa.Text);
+            controller.IntegrateERP(txtUsername.Text, txtPassword.Text, "ZETA", "201.221.29.3");
+            string url = controller.IntegrateEcommerce(txtEmpresa.Text, "", "Mercadolibre");
             Response.Redirect(url);
         }
     }

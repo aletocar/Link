@@ -16,8 +16,12 @@ namespace Link.WebUI
             {
                 IClientController controller = new ClientController();
                 controller.AuthorizeEcommerce("NOVA", "", "mercadolibre", Request.QueryString["code"]);
-
             }
+        }
+
+        protected void btnPublicar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/WebUI/ConfirmIntegration.aspx");
         }
     }
 }
