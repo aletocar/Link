@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Newtonsoft;
 
 namespace Link.WebUI
 {
@@ -13,7 +14,8 @@ namespace Link.WebUI
         protected void Page_Load(object sender, EventArgs e)
         {
             IClientController controller = new ClientController();
-            label.Text = controller.Signup("aletocar", "qwerty", "zeta");
+
+            label.Text = controller.GetArticles("NOVA", "").ToString();
         }
     }
 }

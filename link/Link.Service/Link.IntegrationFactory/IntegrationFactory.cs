@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZetaIntegration;
+using IntegrationZetaPrueba2;
 
 namespace Link.IntegrationFactory
 {
@@ -19,7 +21,7 @@ namespace Link.IntegrationFactory
         public static IERPIntegration GetERPIntegration(string erp)
         {
             //Reflection
-            return null;
+            return new ZetaIntegrationImp();
         }
     }
 }

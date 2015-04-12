@@ -51,6 +51,10 @@
       <Project>{1b637c2c-b008-48ab-b53e-3490d75af6fd}</Project>
       <Name>Link.EcommerceIntegrationInterface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Link.Zeta\Link.Zeta.csproj">
+      <Project>{1c1b383c-daa5-4410-9fb1-de86748a8bbf}</Project>
+      <Name>Link.Zeta</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

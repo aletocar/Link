@@ -112,8 +112,9 @@ namespace Link.Business
             Integration integration;
             using (LinkContext ctx = new LinkContext())
             {
-                Client client = ctx.ClientUsers.Where(cli => cli.UserName == username).FirstOrDefault().IsUserOf;
-                integration = ctx.Integrations.Where(igr => igr.ClientIntegrated == client).FirstOrDefault();
+                ClientUser user = ctx.ClientUsers.Include("IsUserOf").Where(cli => cli.UserName == username).FirstOrDefault();
+                Client client = user.IsUserOf;
+                integration = ctx.Integrations.Include("ErpIntegrated").Where(igr => igr.ClientIntegrated.ClientId == client.ClientId).FirstOrDefault();
                 
             }
             IERPIntegration erp_integration = IntegrationFactory.IntegrationFactory.GetERPIntegration(integration.ErpIntegrated.Name);

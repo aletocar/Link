@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="LIBRA" xmlns:wsdlns="LIBRA" name="ImpWSPrecio" targetNamespace="LIBRA" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <document>
+    <URL>http://localhost:8080/libra22/help/spanish/HLP_PImpWSPrecio.htm</URL>
+    <line>Ok: retorna 0 si la operación se ejecutó correctamente, 1 en caso de error.</line>
+    <line>Error: retorna la descripción del error ocurrido.</line>
+    <line>Empid: identificación de la empresa en ZetaLibra.</line>
+    <line>Emppassword: contraseña de la empresa en ZetaLibra.</line>
+  </document>
+  <types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified" targetNamespace="LIBRA">
+      <xsd:element name="ImpWSPrecio.Execute">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Empid" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Emppassword" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Codigoarticulo" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Codigoprecio" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Codigomoneda" type="xsd:byte" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Preciosiniva" type="xsd:double" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Precioconiva" type="xsd:double" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ImpWSPrecio.ExecuteResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Ok" type="xsd:byte" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Error" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name="ImpWSPrecio.ExecuteSoapIn">
+    <part name="parameters" element="wsdlns:ImpWSPrecio.Execute" />
+  </message>
+  <message name="ImpWSPrecio.ExecuteSoapOut">
+    <part name="parameters" element="wsdlns:ImpWSPrecio.ExecuteResponse" />
+  </message>
+  <portType name="ImpWSPrecioSoapPort">
+    <operation name="Execute">
+      <input message="wsdlns:ImpWSPrecio.ExecuteSoapIn" />
+      <output message="wsdlns:ImpWSPrecio.ExecuteSoapOut" />
+    </operation>
+  </portType>
+  <binding name="ImpWSPrecioSoapBinding" type="wsdlns:ImpWSPrecioSoapPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Execute">
+      <soap:operation soapAction="LIBRAaction/AIMPWSPRECIO.Execute" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ImpWSPrecio">
+    <port name="ImpWSPrecioSoapPort" binding="wsdlns:ImpWSPrecioSoapBinding">
+      <soap:address location="http://localhost:8080/libra/servlet/aimpwsprecio" />
+    </port>
+  </service>
+</definitions>
