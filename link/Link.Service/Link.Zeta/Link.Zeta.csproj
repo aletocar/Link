@@ -52,13 +52,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ZetaIntegrationImp.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\EXPWSArticulos\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\EXPWSStock\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ZetaIntegrationImp.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\EXPWSMovements\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -102,6 +107,13 @@
     <None Include="Service References\EXPWSMovements\IntegrationZetaPrueba2.EXPWSMovements.ExpMovimientosSDTMovimientoItem.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\EXPWSStock\ExpWSStockActual.wsdl" />
+    <None Include="Service References\EXPWSStock\IntegrationZetaPrueba2.EXPWSStock.ExecuteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EXPWSStock\IntegrationZetaPrueba2.EXPWSStock.StockActualSdtStockActualItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\IMPWSMovements\ImpWSMovimiento.wsdl" />
     <None Include="Service References\IMPWSMovements\IntegrationZetaPrueba2.IMPWSMovements.ExecuteResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -116,19 +128,8 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\EXPWSArticulos\" />
     <WCFMetadataStorage Include="Service References\EXPWSMovements\" />
+    <WCFMetadataStorage Include="Service References\EXPWSStock\" />
     <WCFMetadataStorage Include="Service References\IMPWSMovements\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\EXPWSArticulos\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\EXPWSArticulos\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\EXPWSArticulos\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\EXPWSMovements\configuration91.svcinfo" />
@@ -155,10 +156,38 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{0c449750-7478-4cf9-9a06-079733a47b6b}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ERPIntegrationInterface\Link.ERPIntegrationInterface.csproj">
       <Project>{1b339d6d-a3a3-4f89-b16a-156c20f0b569}</Project>
       <Name>Link.ERPIntegrationInterface</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EXPWSStock\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EXPWSStock\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EXPWSStock\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EXPWSArticulos\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EXPWSArticulos\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\EXPWSArticulos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

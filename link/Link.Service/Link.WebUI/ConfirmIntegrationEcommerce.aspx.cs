@@ -16,8 +16,8 @@ namespace Link.WebUI
             {
                 IClientController controller = new ClientController();
                 controller.AuthorizeEcommerce("NOVA", "", "mercadolibre", Request.QueryString["code"]);
-            }
 
+            }
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using MercadoLibreController.LINK.Controllers;
 using System.Reflection;
 using System.Configuration;
+using IntegrationZetaPrueba2;
 
 namespace Link.IntegrationFactory
 {
@@ -25,12 +26,12 @@ namespace Link.IntegrationFactory
 
         public static IERPIntegration GetERPIntegration(string erp)
         {
-            string fileDir = ConfigurationManager.AppSettings[erp.ToUpper() + "Integration".ToUpper()];
-            string assemblyType = ConfigurationManager.AppSettings[erp.ToUpper() + "IntegrationType".ToUpper()];
-            Assembly integrationAssembly = Assembly.LoadFile(fileDir);
-            Type integrationAssemblyType = integrationAssembly.GetType(assemblyType);
-            return Activator.CreateInstance(integrationAssemblyType) as IERPIntegration;
-            //return new ZetaIntegrationImp();
+            //string fileDir = ConfigurationManager.AppSettings[erp.ToUpper() + "Integration".ToUpper()];
+            //string assemblyType = ConfigurationManager.AppSettings[erp.ToUpper() + "IntegrationType".ToUpper()];
+            //Assembly integrationAssembly = Assembly.LoadFile(fileDir);
+            //Type integrationAssemblyType = integrationAssembly.GetType(assemblyType);
+            //return Activator.CreateInstance(integrationAssemblyType) as IERPIntegration;
+            return new ZetaIntegrationImp();
         }
     }
 }

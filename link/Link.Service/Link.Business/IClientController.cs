@@ -17,7 +17,7 @@ namespace Link.Business
         string IntegrateEcommerce(string userName, string token, string ecommerceName);
         string AuthorizeEcommerce(string userName, string token, string ecommerceName, string code);
         string Publish(string username, string token);
-        JObject GetArticles(string username, string token);
+        string GetArticles(string username, string token);
 
     }
 }

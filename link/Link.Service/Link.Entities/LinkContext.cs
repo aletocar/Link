@@ -16,5 +16,6 @@ namespace Link.Entities
         public DbSet<Warehouse> Warehouses { get; set; }
         public DbSet<Integration> Integrations { get; set; }
         public DbSet<Ecommerce> Ecommerces { get; set; }
+        public DbSet<Item> Items { get; set; }
     }
 }

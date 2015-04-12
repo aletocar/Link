@@ -57,6 +57,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{0c449750-7478-4cf9-9a06-079733a47b6b}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ERPIntegrationInterface\Link.ERPIntegrationInterface.csproj">
       <Project>{1b339d6d-a3a3-4f89-b16a-156c20f0b569}</Project>
       <Name>Link.ERPIntegrationInterface</Name>
@@ -72,6 +76,10 @@
     <ProjectReference Include="..\Link.IntegrationInterface\Link.EcommerceIntegrationInterface.csproj">
       <Project>{1b637c2c-b008-48ab-b53e-3490d75af6fd}</Project>
       <Name>Link.EcommerceIntegrationInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MercadoLibreController.LINK\MercadoLibreController.LINK.csproj">
+      <Project>{35f66423-9e08-40f2-8a7e-d17268d97402}</Project>
+      <Name>MercadoLibreController.LINK</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

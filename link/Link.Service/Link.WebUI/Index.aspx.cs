@@ -14,10 +14,9 @@ namespace Link.WebUI
         protected void Page_Load(object sender, EventArgs e)
         {
             IClientController controller = new ClientController();
-
-            //label.Text = controller.GetArticles("NOVA", "").ToString();
-
-            string url = controller.IntegrateEcommerce("NOVA", "", "mercadolibre");
+            controller.Signup("NOVA", "NOVA", "NOVA");
+            controller.IntegrateERP("NOVA", "NOVA", "ZETA", "201.221.29.3");
+            string url = controller.IntegrateEcommerce("NOVA", "", "Mercadolibre");
             Response.Redirect(url);
         }
     }

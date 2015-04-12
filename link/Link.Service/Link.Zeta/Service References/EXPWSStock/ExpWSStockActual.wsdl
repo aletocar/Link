@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="LIBRA" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdlns="LIBRA" xmlns:tns1="LIBRA" name="ExpWSStockActual" targetNamespace="LIBRA" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <document>
+    <URL>http://201.221.29.3:8080/libra24/help/spanish/HLP_PExpWSStockActual.htm</URL>
+    <line>Ok: retorna 0 si la operación se ejecutó correctamente, 1 en caso de error.</line>
+    <line>Error: retorna la descripción del error ocurrido.</line>
+    <line>Empid: identificación de la empresa en ZetaLibra.</line>
+    <line>Emppassword: contraseña de la empresa en ZetaLibra.</line>
+  </document>
+  <types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified" targetNamespace="LIBRA">
+      <xsd:complexType name="StockActualSdt">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="StockActualSdt.StockActualItem" type="tns1:StockActualSdt.StockActualItem" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="StockActualSdt.StockActualItem">
+        <xsd:all>
+          <xsd:element name="CodigoDeposito" type="xsd:short" />
+          <xsd:element name="CodigoArticulo" type="xsd:string" />
+          <xsd:element name="CodigoLote" type="xsd:string" />
+          <xsd:element name="VencimientoLote" type="xsd:string" />
+          <xsd:element name="Stock" type="xsd:double" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:element name="ExpWSStockActual.Execute">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Empid" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Emppassword" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Codigoarticulo" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Codigodeposito" type="xsd:short" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ExpWSStockActual.ExecuteResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Ok" type="xsd:byte" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Error" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Stockactualsdt" type="tns1:StockActualSdt" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </types>
+  <message name="ExpWSStockActual.ExecuteSoapIn">
+    <part name="parameters" element="tns1:ExpWSStockActual.Execute" />
+  </message>
+  <message name="ExpWSStockActual.ExecuteSoapOut">
+    <part name="parameters" element="tns1:ExpWSStockActual.ExecuteResponse" />
+  </message>
+  <portType name="ExpWSStockActualSoapPort">
+    <operation name="Execute">
+      <input message="tns1:ExpWSStockActual.ExecuteSoapIn" />
+      <output message="tns1:ExpWSStockActual.ExecuteSoapOut" />
+    </operation>
+  </portType>
+  <binding name="ExpWSStockActualSoapBinding" type="tns1:ExpWSStockActualSoapPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Execute">
+      <soap:operation soapAction="LIBRAaction/AEXPWSSTOCKACTUAL.Execute" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ExpWSStockActual">
+    <port name="ExpWSStockActualSoapPort" binding="tns1:ExpWSStockActualSoapBinding">
+      <soap:address location="http://201.221.29.3:8080/libra/servlet/aexpwsstockactual" />
+    </port>
+  </service>
+</definitions>

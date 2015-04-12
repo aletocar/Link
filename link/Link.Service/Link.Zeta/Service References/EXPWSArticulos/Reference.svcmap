@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2678940f-5e0e-4b4f-9b6e-976cb637b79c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6bf11b46-36ba-4b3b-b749-ea0f89be9156" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,7 +22,7 @@
     <MetadataSource Address="http://201.221.29.3:8080/libra/servlet/aexpwsarticulos?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ExpWSArticulos.wsdl" MetadataType="Wsdl" ID="c39ca5f2-32a1-44c9-8132-cd9c912cd1ff" SourceId="1" SourceUrl="http://201.221.29.3:8080/libra/servlet/aexpwsarticulos?wsdl" />
+    <MetadataFile FileName="ExpWSArticulos.wsdl" MetadataType="Wsdl" ID="cab3aa8e-e15b-474a-8a66-389655e5cf4b" SourceId="1" SourceUrl="http://201.221.29.3:8080/libra/servlet/aexpwsarticulos?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

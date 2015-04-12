@@ -65,18 +65,22 @@ namespace MercadoLibreController.LINK.Controllers
         
         }
 
-        public string Publish(string json)
+        public string Publish(List<IEcommerceItem> articulosERP)
         {
             var p = new Parameter();
             p.Name = "access_token";
+            meli = new Meli(6811854697761224, "tjNL5zqG1GYbrSKYL5kOXbc6XOZXuSIE");
             p.Value = token;
-            List<ArticleERP> articulosERP = JsonConvert.DeserializeObject<List<ArticleERP>>(json);
+           // List<ArticleERP> articulosERP = JsonConvert.DeserializeObject<List<ArticleERP>>(json);
             List<ArticleMeli> articulosMeli = new List<ArticleMeli>();
             foreach (ArticleERP a in articulosERP)
             {
-                var ps = new List<Parameter>();
-                ps.Add(p);
-                IRestResponse r = meli.Post("/items", ps, new { title = a.title, buying_mode = "buy_it_now", condition = "new", category_id = "MLU1443", currency_id = "UYU", description = a.description, listing_type_id = "bronze", available_quantity = a.available_quantity, price = a.price, video_id = "", warranty = a.warranty});
+                if (a.price > 0)
+                {
+                    var ps = new List<Parameter>();
+                    ps.Add(p);
+                    IRestResponse r = meli.Post("/items", ps, new { title = a.title, buying_mode = "buy_it_now", condition = "new", category_id = "MLU1443", currency_id = "UYU", description = a.description, listing_type_id = "bronze", available_quantity = a.available_quantity, price = a.price, video_id = "", warranty = a.warranty });
+                }
             }
             
             //aca va un conversor del json a articulomeli

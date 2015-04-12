@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Link.EcommerceIntegrationInterface;
 
 namespace MercadoLibreController.LINK.Entidades
 {
-    public class ArticleERP
+    public class ArticleERP : IEcommerceItem
     {
         public string title { get; set; }
         public int price { get; set; }
