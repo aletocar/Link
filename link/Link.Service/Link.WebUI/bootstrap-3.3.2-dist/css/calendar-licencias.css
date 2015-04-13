@@ -1,0 +1,10 @@
+﻿.tiene_solicitud {
+    color: red !important;
+}
+.current_date_calendar {
+    color: orange !important;
+}
+
+    .current_date_calendar .tiene_solicitud {
+        color: yellow;
+    }

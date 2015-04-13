@@ -76,6 +76,24 @@ namespace Link.WebUI {
         protected global::System.Web.UI.WebControls.TextBox txtEmpresa;
         
         /// <summary>
+        /// lblIp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIp;
+        
+        /// <summary>
+        /// txtBoxIp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBoxIp;
+        
+        /// <summary>
         /// btnSignup control.
         /// </summary>
         /// <remarks>
